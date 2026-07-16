@@ -28,7 +28,4 @@ Abrir `index.html` directamente en el navegador, o servir la carpeta con cualqui
 python3 -m http.server 8000
 ```
 
-## Publicar con GitHub Pages
 
-1. Settings → Pages → Source: rama `main`, carpeta `/ (root)`.
-2. El sitio queda disponible en `https://<usuario>.github.io/<repo>/`.
