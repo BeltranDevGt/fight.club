@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fight Night Blog — Noticias de UFC, Boxeo y Jiu-Jitsu</title>
+<meta name="description" content="Fight Night Blog: la última hora de UFC, Boxeo y Jiu-Jitsu. Análisis, guías de técnica y cobertura de los eventos más importantes de los deportes de contacto.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+<header class="site-header">
+  <div class="wrap header-bar">
+
+    <a href="/" class="logo" aria-label="Fight Night — Inicio">
+      <span class="logo-mark">FN</span>
+      <span class="logo-text">FIGHT<em>NIGHT</em></span>
+    </a>
+
+    <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
+      <ul>
+        <li><a href="#" class="active">UFC</a></li>
+        <li><a href="#">Boxeo</a></li>
+        <li><a href="#">Estilos</a></li>
+        <li><a href="#">Guías</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn search-toggle" id="searchToggle" aria-label="Abrir buscador" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.4" y2="16.4"/></svg>
+      </button>
+      <form class="search-form" id="searchForm" role="search">
+        <input type="search" id="searchInput" placeholder="Buscar peleadores, eventos, técnicas…" aria-label="Buscar en Fight Night Blog">
+      </form>
+      <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- =========================================================
+     ZONA ADSENSE #1 — BANNER SUPERIOR (LEADERBOARD)
+     Ubicación: justo debajo del header, antes del contenido.
+     Tamaños recomendados: 728x90 (desktop) / 320x100 (mobile) / responsive "auto".
+     Reservar este contenedor evita CLS (Cumulative Layout Shift).
+========================================================= -->
+<div class="ad-zone ad-leaderboard wrap" aria-label="Publicidad">
+  <span class="ad-label">Publicidad</span>
+  <div class="ad-slot ad-slot--leaderboard">
+    <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="horizontal" data-full-width-responsive="true"></ins> -->
+    <span class="ad-placeholder-text">Espacio reservado · 728×90</span>
+  </div>
+</div>
+<!-- FIN ZONA ADSENSE #1 -->
+
+<!-- =========================================================
+     HERO — ÚLTIMA HORA / EVENTO DESTACADO
+========================================================= -->
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-poster">
+      <div class="hero-poster__texture"></div>
+      <div class="hero-poster__slash"></div>
+      <span class="hero-tag">🔴 Última Hora</span>
+
+      <h1 class="hero-title">UFC 320: Choque de Campeones en la División de Semipesados</h1>
+
+      <p class="hero-excerpt">Todo listo para la revancha que paraliza a la división: tale of the tape, predicciones de los expertos y todo lo que necesitas saber antes de la campanada inicial.</p>
+
+      <div class="hero-meta">
+        <span>UFC</span>
+        <span>·</span>
+        <span>18 OCT 2026</span>
+        <span>·</span>
+        <span>Lectura 6 min</span>
+      </div>
+
+      <a href="#" class="btn btn--primary">Leer Cobertura Completa</a>
+    </div>
+
+    <aside class="hero-tape" aria-label="Tale of the tape">
+      <h2 class="hero-tape__title">Tale of the Tape</h2>
+      <dl class="tape-row"><dt>Categoría</dt><dd>Semipesado · 93kg</dd></dl>
+      <dl class="tape-row"><dt>Récord Campeón</dt><dd>19–2–0</dd></dl>
+      <dl class="tape-row"><dt>Récord Retador</dt><dd>27–3–0</dd></dl>
+      <dl class="tape-row"><dt>Sede</dt><dd>T-Mobile Arena, Las Vegas</dd></dl>
+      <dl class="tape-row"><dt>Título en juego</dt><dd>Sí</dd></dl>
+    </aside>
+  </div>
+</section>
+
+<!-- =========================================================
+     CONTENIDO PRINCIPAL: GRID DE ARTÍCULOS + SIDEBAR
+========================================================= -->
+<main class="wrap main-layout">
+
+  <section class="articles" aria-label="Últimos artículos">
+    <div class="section-heading">
+      <h2>Últimos Artículos</h2>
+      <a href="#" class="see-all">Ver todos →</a>
+    </div>
+
+    <!--
+      El grid de abajo se rellena dinámicamente desde script.js:
+      - ARTICLES se recorre y cada objeto se convierte en una .card
+      - Tras el 2º artículo se inyecta automáticamente la ZONA ADSENSE #2
+        (misma estructura de la propuesta original, generada por JS)
+      - #searchForm filtra este mismo array en tiempo real
+    -->
+    <div class="article-grid" id="articleGrid" aria-live="polite">
+      <p class="grid-loading">Cargando artículos…</p>
+    </div>
+
+    <p class="no-results" id="noResults" hidden>
+      No hay artículos que coincidan con tu búsqueda. Prueba con otro término.
+    </p>
+
+    <div class="pagination">
+      <a href="#" class="btn btn--outline">Cargar más artículos</a>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SIDEBAR
+  ========================================================= -->
+  <aside class="sidebar" aria-label="Barra lateral">
+
+    <div class="widget widget--most-read">
+      <h2 class="widget-title">Más Leídos</h2>
+      <ol class="most-read-list">
+        <li>
+          <span class="rank">01</span>
+          <a href="#">Tale of the Tape: así llegan los dos campeones a la revancha</a>
+        </li>
+        <li>
+          <span class="rank">02</span>
+          <a href="#">Las 10 sumisiones más rápidas en la historia de la UFC</a>
+        </li>
+        <li>
+          <span class="rank">03</span>
+          <a href="#">Corte de peso: los riesgos que pocos peleadores admiten</a>
+        </li>
+        <li>
+          <span class="rank">04</span>
+          <a href="#">Guía para principiantes: tu primera clase de Jiu-Jitsu</a>
+        </li>
+        <li>
+          <span class="rank">05</span>
+          <a href="#">Los mejores nocauts de boxeo de la última década</a>
+        </li>
+      </ol>
+    </div>
+
+    <!-- =========================================================
+         ZONA ADSENSE #3 — BLOQUE DENTRO DEL SIDEBAR
+         Formato recomendado: Rectángulo mediano 300x250 o
+         responsive de display, con posición "sticky" en escritorio
+         para mantener visibilidad durante el scroll sin ser invasivo.
+    ========================================================= -->
+    <div class="ad-zone ad-sidebar" aria-label="Publicidad">
+      <span class="ad-label">Publicidad</span>
+      <div class="ad-slot ad-slot--sidebar">
+        <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="XXXXXXXXXX" data-ad-format="rectangle"></ins> -->
+        <span class="ad-placeholder-text">Espacio reservado · 300×250</span>
+      </div>
+    </div>
+    <!-- FIN ZONA ADSENSE #3 -->
+
+    <div class="widget widget--categories">
+      <h2 class="widget-title">Categorías</h2>
+      <div class="tag-list">
+        <a href="#">UFC</a>
+        <a href="#">Boxeo</a>
+        <a href="#">Jiu-Jitsu</a>
+        <a href="#">Muay Thai</a>
+        <a href="#">Kickboxing</a>
+        <a href="#">Nutrición</a>
+        <a href="#">Técnica</a>
+      </div>
+    </div>
+
+    <div class="widget widget--newsletter">
+      <h2 class="widget-title">No Te Pierdas Ningún Combate</h2>
+      <p>Cartelera, resultados y análisis directo en tu correo, sin spam.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="tu@email.com" aria-label="Correo electrónico" required>
+        <button type="submit" class="btn btn--primary btn--block">Suscribirme</button>
+      </form>
+    </div>
+
+  </aside>
+
+</main>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="logo-text">FIGHT<em>NIGHT</em></span>
+      <p>Cobertura diaria de UFC, Boxeo, Jiu-Jitsu y todas las artes marciales de combate.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Enlaces del pie de página">
+      <div>
+        <h3>Secciones</h3>
+        <a href="#">UFC</a><a href="#">Boxeo</a><a href="#">Estilos</a><a href="#">Guías</a>
+      </div>
+      <div>
+        <h3>Fight Night</h3>
+        <a href="#">Sobre nosotros</a><a href="#">Contacto</a><a href="#">Publicidad</a>
+      </div>
+      <div>
+        <h3>Legal</h3>
+        <a href="#">Privacidad</a><a href="#">Cookies</a><a href="#">Términos</a>
+      </div>
+    </nav>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>© 2026 Fight Night Blog. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+
+</body>
+</html>
